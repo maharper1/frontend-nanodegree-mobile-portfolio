@@ -1,0 +1,36 @@
+{
+  "name": "frontend-nanodegree-mobile-portfolio",
+  "version": "0.0.1",
+  "description": "Udacity web optimization course project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maharper1/frontend-nanodegree-mobile-portfolio.git"
+  },
+  "author": "Annette Harper",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maharper1/frontend-nanodegree-mobile-portfolio/issues"
+  },
+  "homepage": "https://github.com/maharper1/frontend-nanodegree-mobile-portfolio",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-compress": "^0.13.0",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-cssmin": "^0.12.2",
+    "grunt-contrib-htmlmin": "^0.4.0",
+    "grunt-contrib-imagemin": "^0.9.4",
+    "grunt-contrib-jshint": "^0.11.2",
+    "grunt-contrib-nodeunit": "^0.4.1",
+    "grunt-contrib-qunit": "^0.7.0",
+    "grunt-contrib-uglify": "^0.9.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-uncss": "^0.4.2"
+  },
+  "dependencies": {
+    "imagemin-jpegoptim": "^4.0.0"
+  }
+}

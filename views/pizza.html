@@ -1,8 +1,65 @@
 <!DOCTYPE HTML>
 <html>
-<head>  
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/bootstrap-grid.css">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- //---  <link rel="stylesheet" href="css/style.css"> -->
+  <!-- //--- Minimized the bootstrap file. -->
+  <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+  <style>
+    * {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Trebuchet MS", Helvetica, sans-serif;
+      background: black;
+    }
+
+    input {
+      background: grey;
+      font-size: 18px;
+    }
+
+    form {
+      display: inline-block;
+    }
+
+    .centered {
+      text-align: center;
+    }
+
+    #pizzaSize {
+      font-weight: 800;
+    }
+
+    .mover {
+      position: fixed;
+      width: 256px;
+      z-index: -1;
+    }
+
+    .randomPizzaContainer {
+      float: left;
+      display: flex;
+      /* //--- All randomPizzaContainers are the same height (or should be)*/
+      height: 325px;
+    }
+
+    .randomPizzaContainer:after {
+      content: "";
+      display: table;
+      clear:both;
+    }
+
+     .container {
+      background-color: rgba(240, 60, 60, 0.8);
+    }
+  </style>
 </head>
 
 <body>
@@ -31,17 +88,33 @@
           </div>
         </div>
       </div>
-      <div id="movingPizzas1" class="col-md-6">
-      </div>
+      <!-- //--- Div creation moved to Javascript -->
+      <!-- <div id="movingPizzas1" class="col-md-6">
+      </div> -->
     </div>
     <div id="callToAction" class="row">
       <div class="col-md-4">
-        <img src="images/pizzeria.jpg" class="img-responsive"> <!-- Image credit to: http://commons.wikimedia.org/wiki/File:HK_TST_night_%E5%98%89%E8%98%AD%E9%81%93_Granville_Road_restaurant_Paisano's_Pizzeria_pizza_Dec-2013.JPG -->
+        <!-- Image credit to: http://commons.wikimedia.org/wiki/File:HK_TST_night_%E5%98%89%E8%98%AD%E9%81%93_Granville_Road_restaurant_Paisano's_Pizzeria_pizza_Dec-2013.JPG -->
+        <picture>
+            <source media="(min-width: 992px)"
+             srcset="images/pizzeria-1000.jpg 1x,
+                     images/pizzeria.jpg 2x" />
+            <source media="(min-width: 768px)"
+             srcset="images/pizzeria-800.jpg 1x,
+                     images/pizzeria-1600.jpg 2x" />
+            <source media="(min-width: 301px)"
+             srcset="images/pizzeria-400.jpg 1x,
+                     images/pizzeria-800.jpg 2x" />
+            <source media="(min-width: 150px)"
+             srcset="images/pizzeria-200.jpg 1x,
+                     images/pizzeria-400.jpg 2x" />
+            <img class="img-responsive" src="images/pizzeria-400.jpg" alt="Counter with pizzas displayed">
+          </picture>
       </div>
       <div class="col-md-8">
         <div class="row">
           <div class="col-md-12">
-            <h2>We Have Hundreds of Pizza Recipes!</h2>            
+            <h2>We Have Hundreds of Pizza Recipes!</h2>
             <p>At Cam's Pizzeria, we know you want options. Pepperoni? Boring. Cheese? No way! Sausage? C'mon, let's get creative.</p>
 
             <p>We have every pizza ingredient imaginable in our kitchen because we know you take choice seriously. Take a look through our menu of hundreds of pizza options and we know that you'll find something you love.</p>
@@ -137,7 +210,8 @@
     </div>
     <div id="footer" class="col-md-12">Thanks for visiting! &copy; 2014 Udacity</div>
   </div>
-  <script type="text/javascript" src="js/main.js"></script>
+  <!-- //--- Minimized the javascript file. -->
+  <script type="text/javascript" src="js/main.min.js"></script>
 </body>
 
 </html>
