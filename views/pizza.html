@@ -8,8 +8,13 @@
   <!-- //---  <link rel="stylesheet" href="css/style.css"> -->
   <!-- //--- Minimized the bootstrap file. -->
   <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+
+<!--   //--- Determined that for most screen sizes, the initial page does not load below
+        the Locations section, so styles used above the Location section were in-lined.
+        One of several grunt tools could be used to automate the selection of critical CSS.
+        The remaining css is loaded asynchronoulsy via a script at the end of the file.-->
   <style>
-    * {
+    html {
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       -box-sizing: border-box;
@@ -33,27 +38,10 @@
       text-align: center;
     }
 
-    #pizzaSize {
-      font-weight: 800;
-    }
-
     .mover {
       position: fixed;
       width: 256px;
       z-index: -1;
-    }
-
-    .randomPizzaContainer {
-      float: left;
-      display: flex;
-      /* //--- All randomPizzaContainers are the same height (or should be)*/
-      height: 325px;
-    }
-
-    .randomPizzaContainer:after {
-      content: "";
-      display: table;
-      clear:both;
     }
 
      .container {
@@ -210,6 +198,21 @@
     </div>
     <div id="footer" class="col-md-12">Thanks for visiting! &copy; 2014 Udacity</div>
   </div>
+
+  <!-- //--- Function to load style.css asynchonously.
+             From https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery -->
+  <script>
+    var cb = function() {
+      var l = document.createElement('link'); l.rel = 'stylesheet';
+      l.href = 'css/style.min.css';
+      var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+    };
+    var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+        webkitRequestAnimationFrame || msRequestAnimationFrame;
+    if (raf) raf(cb);
+    else window.addEventListener('load', cb);
+  </script>
+
   <!-- //--- Minimized the javascript file. -->
   <script type="text/javascript" src="js/main.min.js"></script>
 </body>

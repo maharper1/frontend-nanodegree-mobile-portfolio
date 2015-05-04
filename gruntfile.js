@@ -78,9 +78,6 @@ module.exports = function(grunt) {
         }
       }
     },
-    //qunit: {
-    //  files: ['test/**/*.html']
-    //},
     jshint: {
       files: ['Gruntfile.js', 'js/**/*.js'],
       options: {
@@ -92,37 +89,17 @@ module.exports = function(grunt) {
           document: true
         }
       }
-    },
-    // compress: {
-    //   main: {
-    //     options: {
-    //       mode: 'gzip'
-    //     },
-    //     expand: true,
-    //     cwd: 'dist/',
-    //     src: ['*.html'],
-    //     dest: 'dist/'
-    //    }
-    // },
-    // watch: {
-    //   files: ['<%= jshint.files %>'],
-    //   tasks: ['jshint'/*, 'qunit'*/]
-    // }
+    }
   });
 
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  //grunt.loadNpmTasks('grunt-contrib-qunit');
-  //grunt.loadNpmTasks('grunt-contrib-nodeunit');
-  //grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
 
-  //grunt.registerTask('test', ['jshint', 'qunit']);
-
-  grunt.registerTask('default', ['imagemin', 'cssmin', 'jshint', /*'qunit',*/ 'concat', 'uglify', 'htmlmin'/*, 'compress'*/]);
+  grunt.registerTask('default', ['imagemin', 'cssmin', 'jshint', 'concat', 'uglify', 'htmlmin']);
 
 };

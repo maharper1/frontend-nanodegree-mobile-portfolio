@@ -8,7 +8,7 @@ function logCRP() {
   var stats = document.getElementById("crp-stats");
   stats.textContent = 'DCL: ' + dcl + 'ms, onload: ' + complete + 'ms';
 }
-//change to test watch
+
 window.addEventListener("load", function(event) {
   logCRP();
 });

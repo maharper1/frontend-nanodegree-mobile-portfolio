@@ -8,17 +8,10 @@
     <meta name="author" content=" FILL ME IN ">
     <title>Cameron Pittman: Portfolio</title>
 
-    <script>
-      (function(w,g){w['GoogleAnalyticsObject']=g;
-      w[g]=w[g]||function(){(w[g].q=w[g].q||[]).push(arguments)};w[g].l=1*new Date();})(window,'ga');
-
-      // TODO: replace with your Google Analytics profile ID.
-      ga('create', 'UA-XXXX-Y');
-      ga('send', 'pageview');
-    </script>
-
     <style>
-      /* //--- Style CSS inlined to reduce time to load*/
+      /* //--- CSS that appears on initial page load inlined to reduce time to load. A
+               grunt tool could be used to determine what is critical in a more precise
+               and automated fashion. The rest of the css is loaded asynchronously in a script.*/
       html {
         font-size: 100%;
         overflow-y: scroll;
@@ -29,30 +22,25 @@
       body { margin: 0; font-size: 14px; line-height: 1.61; font-weight: 400; }
 
       /*//--- Chose not to load the custom font as the built-in sans-serif font was fine.*/
-      body, button, input, select, textarea { font-family: /*'Open Sans',*/ sans-serif; color: #333; }
+      body { font-family: /*'Open Sans',*/ sans-serif; color: #333; }
 
       a { color: #12C; }
-      a:visited { color: #61C; }
-      a:focus { outline: thin dotted; }
-      a:hover, a:active { color: #c00; outline: 0; }
 
-      b, strong { font-weight: bold; }
-      pre, code { font-family: monospace, monospace; font-size: 1em; }
-      ul, ol { margin: 1em 0; padding: 0 0 0 20px; }
-      img { border: 0; max-width: 100%; }
-
-      body { background: #fff; }
-      header, footer, .container { max-width: 45em; margin: 0 auto; }
+      .hero { padding: 2em; background-color: #f8f8f8; font-size:1.2em;
+        border-bottom: 1px solid #ccc;
+        border-top: 1px solid #ccc;
+      }
 
       header { padding: 0 0.5em; color: #C90B0B; }
       header img { border-radius: 40px; float: left; }
       header p { font-size:1.5em; font-weight: bold; padding-left: 4em;}
       header p span { font-size: 0.8em; font-weight: normal;}
 
-      .hero { padding: 2em; background-color: #f8f8f8; font-size:1.2em;
-        border-bottom: 1px solid #ccc;
-        border-top: 1px solid #ccc;
-      }
+      body { background: #fff; }
+      header, footer, .container { max-width: 45em; margin: 0 auto; }
+
+      ul { margin: 1em 0; padding: 0 0 0 20px; }
+      img { border: 0; max-width: 100%; }
 
       .content { padding: 1em 1em; }
       .content li { list-style-type: none; font-size: 1.1em;}
@@ -70,6 +58,7 @@
         body { font-size: 12px;}
         header p { padding-left: 4.5em;}
       }
+
     </style>
 
     <!-- Hmm, what is the impact of web fonts on speed? Measure it... -->
@@ -128,5 +117,29 @@
     <footer>
       <p>&copy; Web Performance 2014 <span id="crp-stats"></span></p>
     </footer>
+
+    <!-- //--- Function to load style.css asynchonously.
+               From https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery -->
+    <script>
+      var cb = function() {
+        var l = document.createElement('link'); l.rel = 'stylesheet';
+        l.href = 'css/style.min.css';
+        var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+      };
+      var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+          webkitRequestAnimationFrame || msRequestAnimationFrame;
+      if (raf) raf(cb);
+      else window.addEventListener('load', cb);
+    </script>
+
+    <!-- //--- Moved per evaluator's suggestion -->
+    <script>
+      (function(w,g){w['GoogleAnalyticsObject']=g;
+      w[g]=w[g]||function(){(w[g].q=w[g].q||[]).push(arguments)};w[g].l=1*new Date();})(window,'ga');
+
+      // TODO: replace with your Google Analytics profile ID.
+      ga('create', 'UA-XXXX-Y');
+      ga('send', 'pageview');
+    </script>
   </body>
 </html>
